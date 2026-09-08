@@ -1,14 +1,14 @@
 /* ==========================================
     SMART FOOD EXPERIENCE - FULLY FIXED & UNIFIED
     ========================================== */
-    let foodItemsList = JSON.parse(localStorage.getItem('smartFoodsList')) || foodItems;
+        let foodItemsList = JSON.parse(localStorage.getItem('smartFoodsList')) || [];
     let cart = JSON.parse(localStorage.getItem('smartFoodCart')) || [];
     let currentActiveCategory = "all";
     
     // 3. Initialization on DOM Load
     document.addEventListener("DOMContentLoaded", () => {
         loadTheme();
-        renderMenu(foodItemsList);
+                renderMenu(foodItemsList);
         updateCartUI();
     });
     
