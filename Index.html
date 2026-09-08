@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Food Experience | مملكة الأطعمة الكبرى الشاملة</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-main: #f8f9fa;
+        --bg-card: #ffffff;
+        --text-color: #212529;
+        --text-muted: #6c757d;
+        --primary-color: #ff5722;
+        --primary-hover: #e64a19;
+        --secondary-color: #2e7d32;
+        --border-color: #e0e0e0;
+        --modal-bg: rgba(0, 0, 0, 0.6);
+      }
+
+      body.dark-theme {
+        --bg-main: #121212;
+        --bg-card: #1e1e1e;
+        --text-color: #f1f1f1;
+        --text-muted: #aaa;
+        --border-color: #333;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-main);
+        color: var(--text-color);
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+      .container {
+        width: 92%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      /* Header & Navigation */
+      .header {
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--text-color);
+      }
+
+      .navbar {
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: 0.2s;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+        color: var(--primary-color);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s ease-in-out;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .btn-accent {
+        background-color: #ff9800;
+        color: #fff;
+      }
+
+      .btn-accent:hover {
+        background-color: #f57c00;
+      }
+
+      .btn-outline {
+        border: 2px solid var(--primary-color);
+        background: transparent;
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .icon-btn {
+        background: var(--bg-main);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 50%;
+      }
+
+      .cart-wrapper {
+        position: relative;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 40px 0;
+      }
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+
+      .hero-content .tag {
+        background: rgba(255, 87, 34, 0.1);
+        color: var(--primary-color);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        color: var(--text-muted);
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      .hero-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .hero-image img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Sections General */
+      section {
+        padding: 40px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .section-title h2 span {
+        color: var(--primary-color);
+      }
+
+      .section-title p {
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* أقسام الأطعمة */
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 992px) {
+        .category-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .category-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 14px 10px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .category-card:hover,
+      .category-card.active {
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+        background: rgba(255, 87, 34, 0.05);
+      }
+
+      .category-card i {
+        font-size: 22px;
+        color: var(--primary-color);
+        margin-bottom: 6px;
+      }
+
+      .category-card span {
+        display: block;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      /* قائمة الطعام - 4 كروت في الصف مضبوطة تماماً */
+      .food-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      @media (max-width: 1200px) {
+        .food-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .food-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 550px) {
+        .food-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .food-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: 0.2s;
+        position: relative; /* مهم عشان زر الإزالة يثبت فوق الكارد */
+      }
+
+      .food-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      /* زر الإزالة فوق الكارد */
+      .delete-card-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(220, 53, 69, 0.85);
+        color: #fff;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        z-index: 10;
+        transition: 0.2s;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .delete-card-btn:hover {
+        background: #dc3545;
+        transform: scale(1.1);
+      }
+
+      .food-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .food-details {
+        padding: 16px;
+      }
+
+      .food-details h3 {
+        font-size: 17px;
+        margin-bottom: 6px;
+      }
+
+      .food-details p {
+        color: var(--text-muted);
+        font-size: 13px;
+        margin-bottom: 12px;
+        height: 38px;
+        overflow: hidden;
+      }
+
+      .food-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .food-price {
+        font-weight: 800;
+        color: var(--primary-color);
+        font-size: 17px;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        padding: 40px 0 20px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 15px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 8px;
+      }
+
+      .footer-col ul li a {
+        text-decoration: none;
+        color: var(--text-muted);
+        transition: 0.2s;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--primary-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .social-links a {
+        width: 35px;
+        height: 35px;
+        background: var(--bg-main);
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* Modals Styling */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--bg-card);
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1001;
+        width: 90%;
+        max-width: 450px;
+        text-align: right;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .modal.active {
+        display: block;
+      }
+
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--modal-bg);
+        z-index: 1000;
+      }
+
+      .modal-overlay.active {
+        display: block;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+      }
+
+      .close-btn {
+        font-size: 22px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-main);
+        color: var(--text-color);
+        font-size: 14px;
+      }
+
+      .qr-box {
+        margin: 15px 0;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 12px;
+        display: inline-block;
+        border: 1px solid var(--border-color);
+      }
+
+      .qr-box img {
+        width: 200px;
+        height: 200px;
+        display: block;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .cart-item-info h4 {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+
+      .cart-item-info p {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .cart-total {
+        font-size: 18px;
+        font-weight: 800;
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: -60px;
+        right: 20px;
+        background: var(--text-color);
+        color: var(--bg-main);
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: bottom 0.3s ease;
+        z-index: 2000;
+      }
+
+      .toast.show {
+        bottom: 20px;
+      }
+    </style>
+  </head>
+  <body class="light-theme">
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-utensils"></i> مطعم<span>الأطعمة الكبرى</span>
+        </a>
+
+        <nav class="navbar">
+          <a href="#hero" class="active">الرئيسية</a>
+          <a href="#categories">الأقسام</a>
+          <a href="#menu">القائمة الشاملة</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            id="add-food-btn"
+            class="btn btn-accent"
+            onclick="openAddFoodModal()"
+          >
+            <i class="fa-solid fa-plus-circle"></i> إضافة صنف
+          </button>
+
+          <button class="btn btn-outline" onclick="openQrModal()">
+            <i class="fa-solid fa-qrcode"></i> QR Code
+          </button>
+          <button
+            class="btn btn-outline"
+            onclick="window.location.href = 'sign_in.html'"
+          >
+            <i class="fa-solid fa-right-to-bracket"></i> Sign in
+          </button>
+          <div class="cart-wrapper">
+            <button
+              id="cart-btn"
+              class="icon-btn"
+              title="سلة التسوق"
+              onclick="openCartModal()"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-badge" class="badge">0</span>
+            </button>
+          </div>
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            title="تغيير المظهر"
+            onclick="toggleTheme()"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="tag">⚡ أضخم منيو وأسرع توصيل</span>
+          <h1>مملكة الأطعمة الممتعة: كل أطعمة المدينة في مكان واحد!</h1>
+          <p>
+            استمتع بتشكيلة هائلة وضخمة من أشهى الأطباق، الوجبات السريعة،
+            المشويات، الدايت، الإضافات والفطور الصباحي.
+          </p>
+          <div class="hero-btns">
+            <a href="#menu" class="btn btn-primary"
+              >تصفح القائمة الشاملة الآن <i class="fa-solid fa-arrow-left"></i
+            ></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+            alt="أكل متنوع"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+      <div class="container">
+        <div class="section-title">
+          <h2>أقسام <span>المدينة الشاملة</span></h2>
+          <p>اختر القسم الذي تحبه لتستعرض أطايب الطعام والوجبات فوراً</p>
+        </div>
+        <div class="category-grid" id="category-filters">
+          <button
+            class="category-card active"
+            data-category="all"
+            onclick="filterCategory('all', this)"
+          >
+            <i class="fa-solid fa-border-all"></i>
+            <span>الكل</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="burger"
+            onclick="filterCategory('burger', this)"
+          >
+            <i class="fa-solid fa-burger"></i>
+            <span>برجر</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="pizza"
+            onclick="filterCategory('pizza', this)"
+          >
+            <i class="fa-solid fa-pizza-slice"></i>
+            <span>بيتزا</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="hotdog"
+            onclick="filterCategory('hotdog', this)"
+          >
+            <i class="fa-solid fa-hotdog"></i>
+            <span>هوت دوج</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="hawawshi"
+            onclick="filterCategory('hawawshi', this)"
+          >
+            <i class="fa-solid fa-pie-chart"></i>
+            <span>حواوشي وطواجن</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="sausage"
+            onclick="filterCategory('sausage', this)"
+          >
+            <i class="fa-solid fa-bacon"></i>
+            <span>سوسيس</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="grills"
+            onclick="filterCategory('grills', this)"
+          >
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            <span>مشويات</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="orientalgrills"
+            onclick="filterCategory('orientalgrills', this)"
+          >
+            <i class="fa-solid fa-drumstick-bite"></i>
+            <span>مشويات شرقية</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="chicken"
+            onclick="filterCategory('chicken', this)"
+          >
+            <i class="fa-solid fa-bowl-food"></i>
+            <span>دجاج مقرمش</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="sandwiches"
+            onclick="filterCategory('sandwiches', this)"
+          >
+            <i class="fa-solid fa-bread-slice"></i>
+            <span>سندويتشات</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="seafood"
+            onclick="filterCategory('seafood', this)"
+          >
+            <i class="fa-solid fa-fish"></i>
+            <span>مأكولات بحرية</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="pasta"
+            onclick="filterCategory('pasta', this)"
+          >
+            <i class="fa-solid fa-plate-wheat"></i>
+            <span>باستا ومعكرونة</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="appetizers"
+            onclick="filterCategory('appetizers', this)"
+          >
+            <i class="fa-solid fa-utensils"></i>
+            <span>مقبلات شوربة</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="fruits"
+            onclick="filterCategory('fruits', this)"
+          >
+            <i class="fa-solid fa-apple-whole"></i>
+            <span>فاكهة طازجة</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="vegetables"
+            onclick="filterCategory('vegetables', this)"
+          >
+            <i class="fa-solid fa-carrot"></i>
+            <span>خضروات سلطات</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="desserts"
+            onclick="filterCategory('desserts', this)"
+          >
+            <i class="fa-solid fa-ice-cream"></i>
+            <span>حلويات</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="extras"
+            onclick="filterCategory('extras', this)"
+          >
+            <i class="fa-solid fa-plus-square"></i>
+            <span>إضافات خاصة</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="breakfast"
+            onclick="filterCategory('breakfast', this)"
+          >
+            <i class="fa-solid fa-egg"></i>
+            <span>فطور صباحي</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="mexican"
+            onclick="filterCategory('mexican', this)"
+          >
+            <i class="fa-solid fa-pepper-hot"></i>
+            <span>أكل مكسيكي</span>
+          </button>
+          <button
+            class="category-card"
+            data-category="diet"
+            onclick="filterCategory('diet', this)"
+          >
+            <i class="fa-solid fa-leaf"></i>
+            <span>وجبات دايت وصحية</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+      <div class="container">
+        <div class="section-title">
+          <h2>قائمة <span>الأطعمة الشاملة لمدينة الأكل</span></h2>
+          <p>تشكيلة ضخمة ومضبوطة بصفوف كاملة تغطي كافة الأقسام بإتقان</p>
+        </div>
+        <div class="food-grid" id="food-container">
+          <!-- المنتجات تُعرض ديناميكياً هنا ومعها زر الحذف العلوي -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-col">
+          <a href="index.html" class="logo">
+            <i class="fa-solid fa-utensils"></i> مطعم<span>الأطعمة الكبرى</span>
+          </a>
+          <p>مملكتك الخاصة لتجربة كافة أطعمة المدينة بجودة لا تُضاهى.</p>
+        </div>
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#categories">الأقسام</a></li>
+            <li><a href="#menu">القائمة الشاملة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <p><i class="fa-solid fa-phone"></i> +20 123 456 7890</p>
+          <p><i class="fa-solid fa-envelope"></i> support@grandfood.com</p>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>جميع الحقوق محفوظة &copy; 2026 Grand Food Experience</p>
+      </div>
+    </footer>
+
+    <!-- نافذة إضافة صنف (Modal) -->
+    <div id="food-modal" class="modal">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-utensils"></i> إضافة صنف جديد للمطعم</h3>
+        <button class="close-btn" onclick="openAddFoodModal()">&times;</button>
+      </div>
+      <form id="add-food-form" onsubmit="handleAddNewFood(event)">
+        <div class="form-group">
+          <label for="food-name"
+            ><i class="fa-solid fa-pen"></i> اسم الوجبة أو الصنف</label
+          >
+          <input
+            type="text"
+            id="food-name"
+            placeholder="مثال: طبق مشويات مشكلة فاخر"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="food-category"
+            ><i class="fa-solid fa-list"></i> القسم</label
+          >
+          <select id="food-category" required>
+            <option value="burger">برجر</option>
+            <option value="pizza">بيتزا</option>
+            <option value="hotdog">هوت دوج</option>
+            <option value="hawawshi">حواوشي وطواجن</option>
+            <option value="sausage">سوسيس</option>
+            <option value="grills">مشويات</option>
+            <option value="orientalgrills">مشويات شرقية</option>
+            <option value="chicken">دجاج مقرمش</option>
+            <option value="sandwiches">سندويتشات</option>
+            <option value="seafood">مأكولات بحرية</option>
+            <option value="pasta">باستا ومعكرونة</option>
+            <option value="appetizers">مقبلات شوربة</option>
+            <option value="fruits">فاكهة طازجة</option>
+            <option value="vegetables">خضروات سلطات</option>
+            <option value="drinks">مشروبات وعصائر</option>
+            <option value="desserts">حلويات</option>
+            <option value="extras">إضافات خاصة</option>
+            <option value="breakfast">فطور صباحي</option>
+            <option value="bakery">معجنات ومخبوزات</option>
+            <option value="mexican">أكل مكسيكي</option>
+            <option value="diet">وجبات دايت وصحية</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="food-price"
+            ><i class="fa-solid fa-tag"></i> السعر (ج.م)</label
+          >
+          <input
+            type="number"
+            id="food-price"
+            min="1"
+            placeholder="مثال: 150"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="food-desc"
+            ><i class="fa-solid fa-align-right"></i> الوصف والتفاصيل</label
+          >
+          <textarea
+            id="food-desc"
+            rows="2"
+            placeholder="اكتب مكونات الوجبة ومميزاتها..."
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="food-image-url"
+            ><i class="fa-solid fa-image"></i> رابط الصورة (URL)</label
+          >
+          <input
+            type="url"
+            id="food-image-url"
+            placeholder="أدخل رابط صورة مباشرة"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-plus"></i> إضافة الصنف فوراً للمطعم
+        </button>
+      </form>
+    </div>
+
+    <!-- نافذة سلة المشتريات (Modal) -->
+    <div id="cart-modal" class="modal">
+      <div class="modal-header">
+        <h3>
+          <i class="fa-solid fa-cart-shopping"></i> سلة المشتريات (كاشن الطلبات)
+        </h3>
+        <button class="close-btn" onclick="closeCartModal()">&times;</button>
+      </div>
+      <div id="cart-items-container">
+        <!-- محتوى السلة يضاف ديناميكياً -->
+      </div>
+      <div class="cart-total">
+        <span>الإجمالي:</span>
+        <span id="cart-total-price">0 ج.م</span>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="checkout()">
+        إتمام الطلب <i class="fa-solid fa-check"></i>
+      </button>
+    </div>
+
+    <!-- نافذة الـ QR Code المنبثقة (Modal) -->
+    <div id="qr-modal" class="modal" style="text-align: center">
+      <button
+        class="close-btn"
+        style="left: 15px; right: auto"
+        onclick="closeQrModal()"
+      >
+        &times;
+      </button>
+      <h3 style="margin-top: 10px">
+        <i class="fa-solid fa-qrcode"></i> رمز QR الخاص بالمنيو
+      </h3>
+
+      <div class="qr-box">
+        <img id="qr-image" src="" alt="جاري تحميل الـ QR Code..." />
+      </div>
+
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 18px">
+        امسح الكود عبر كاميرا هاتفك لفتح المنيو والطلب فوراً.
+      </p>
+
+      <button class="btn btn-primary btn-block" onclick="copySiteLink()">
+        <i class="fa-solid fa-copy"></i> نسخ رابط المنيو
+      </button>
+    </div>
+
+    <!-- الخلفية المظلمة عند فتح النوافذ -->
+    <div
+      id="modal-overlay"
+      class="modal-overlay"
+      onclick="closeAllModals()"
+    ></div>
+
+    <!-- عنصر التنبيهات (Toast) -->
+    <div id="toast" class="toast"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
